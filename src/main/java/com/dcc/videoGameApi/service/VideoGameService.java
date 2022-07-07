@@ -16,9 +16,7 @@ public class VideoGameService {
     @Autowired
     private VideoGameRepository repository;
 
-    public VideoGame saveVideoGame(VideoGame videoGame) {
-        return repository.save(videoGame);
-    }
+
 
     public List<VideoGame> getVideoGame(){
         return repository.findAll();
@@ -27,9 +25,9 @@ public class VideoGameService {
         return repository.findById(id).orElse(null);
     }
 
-//    public long GetCountOfGames(){
-//        return VideoGameRepository.count();
-//    }
+    public long GetCountOfGames(){
+        return repository.count();
+    }
 
 
 }

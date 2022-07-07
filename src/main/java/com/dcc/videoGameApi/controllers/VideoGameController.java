@@ -25,7 +25,7 @@ public class VideoGameController {
     public VideoGame findVideoGameById(@PathVariable Integer id){
         return service.getVideoGameById(id);
     }
-//    @GetMapping("/count")
-//    public long GetCount(){ return service.GetCountOfGames(); }
+    @GetMapping("/count")
+    public long GetCount(){ return service.GetCountOfGames(); }
 
 }
