@@ -3,7 +3,6 @@ const DisplayGlobalSales = (props) => {
         <table>
          <thead>
         <tr>
-            <th>globalsales</th>
             <th>PS3</th>
             <th>X360</th>
             <th>PS4</th>
@@ -20,7 +19,7 @@ const DisplayGlobalSales = (props) => {
         {props.parentGlobalSales.map((globalsale) =>{
             return (
             <tr>
-                 <td>{globalsale.globalsale}</td>
+                 <td>{globalsale.sales}</td>
             </tr>
              );
         })}

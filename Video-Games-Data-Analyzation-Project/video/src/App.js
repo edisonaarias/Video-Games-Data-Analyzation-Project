@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import DisplayGlobalSales from './Components/DisplayGlobalSales/DisplayGlobalSales';
+import AddGlobalSales from './Components/AddGlobalSales/AddGlobalSales';
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <div>
       <DisplayGlobalSales parentGlobalSales={globalsales} />
+      <AddGlobalSales />
 
     </div>
   );
