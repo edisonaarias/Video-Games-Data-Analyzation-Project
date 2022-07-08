@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import DisplayGlobalSales from './Components/DisplayGlobalSales/DisplayGlobalSales';
 import axios from 'axios';
-import DisplayPlatformStats from './Components/DisplayPlatformStats/DisplayPlatformStats';
+// import DisplayPlatformStats from './Components/DisplayPlatformStats/DisplayPlatformStats';
 
 function App() {
 
@@ -30,7 +30,7 @@ function App() {
   return (
     <div>
       <DisplayGlobalSales parentGlobalSales={globalSales} />
-      <DisplayPlatformStats globalSales={globalSales}/>
+      {/* <DisplayPlatformStats globalSales={globalSales}/> */}
 
     </div>
   );

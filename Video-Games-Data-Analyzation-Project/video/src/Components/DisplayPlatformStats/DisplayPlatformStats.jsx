@@ -7,7 +7,7 @@ const DisplayPlatformStats = ({globalSales}) => {
 
         console.log(globalSales);
 
-        
+        // Filters the video games by year
         let filteredGames = globalSales.filter(game => game.year > 2013);
 
         console.log('Filtered Games', filteredGames)
@@ -18,22 +18,48 @@ const DisplayPlatformStats = ({globalSales}) => {
 
         console.log('Platforms', platforms)
 
+        // uniq = [...new Set(array)];
+
+        let distinctPlaforms = [...new Set(platforms)]
+
+        console.log('Distinct Platforms', distinctPlaforms)
+
+        // ["PS3", 10, "silver"]
+
+        let platformArrays = distinctPlaforms.map(platform => {
+
+            let allGamesForPlatform = filteredGames.filter(game =>  game.platform == platform);
+
+            return [platform, 10 , "sliver" ]
+        });
+
+        console.log('Platform Arrays', platformArrays)
+
         const data = [
             ["Platform", "globalSales", {role: "style" }],
-            ["PS3", "White"],
-            ["X360", "green"],
-            ["PS4", "White"],
-            ["3DS", "Red"],
-            ["XOne", "green"],
-            ["wiiU", "Red"],
-            ["Wii", "Red"],
-            ["PC","Gold"],
-            ["DS", "Red"],
-            ["PSP", "White"],
-        ];
+            ...platformArrays
+
+          ];
         
-            return data;
+          console.log('Data', data)
+
+
+          return data;
     }
+     
+        // ["PS3", "White"],
+        // ["X360", "green"],
+        // ["PS4", "White"],
+        // ["3DS", "Red"],
+        // ["XOne", "green"],
+        // ["wiiU", "Red"],
+        // ["Wii", "Red"],
+        // ["PC","Gold"],
+        // ["DS", "Red"],
+        // ["PSP", "White"],
+
+            // return data;
+    // }
 
     return ( 
         <div>
