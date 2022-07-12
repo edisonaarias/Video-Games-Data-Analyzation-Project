@@ -10,30 +10,40 @@ const DisplayPlatformStats = ({globalSales}) => {
         // Filters the video games by year
         let filteredGames = globalSales.filter(game => game.year > 2013);
 
-        console.log('Filtered Games', filteredGames)
+        // console.log('Filtered Games', filteredGames)
 
         let platforms = filteredGames.map(game => {
             return game.platform
         });
 
-        console.log('Platforms', platforms)
+        // console.log('Platforms', platforms)
 
         // uniq = [...new Set(array)];
 
-        let distinctPlaforms = [...new Set(platforms)]
+        let distinctPlatforms = [...new Set(platforms)]
 
-        console.log('Distinct Platforms', distinctPlaforms)
+        console.log('Distinct Platforms', distinctPlatforms)
 
         // ["PS3", 10, "silver"]
 
-        let platformArrays = distinctPlaforms.map(platform => {
+        let platformArrays = distinctPlatforms.map(platform => {
 
-            let allGamesForPlatform = filteredGames.filter(game =>  game.platform == platform);
+            let allGamesForPlatform = filteredGames.filter(game =>  game.platform === platform);
 
-            return [platform, 10 , "sliver" ]
+            console.log("All games platform", allGamesForPlatform)
+// 
+            let sum = 0;
+
+            // use a for loop to loop over allGamesForPlatform and add the .globalsales of each to totalGlobalSales
+            for (let i = 0; i <  allGamesForPlatform.length; i++) {
+                sum += allGamesForPlatform[i].globalsales;    
+            }
+            
+            
+            return [ platform, sum, "silver" ]
         });
 
-        console.log('Platform Arrays', platformArrays)
+        // console.log(platforms, distinctPlatforms)
 
         const data = [
             ["Platform", "globalSales", {role: "style" }],
@@ -41,7 +51,7 @@ const DisplayPlatformStats = ({globalSales}) => {
 
           ];
         
-          console.log('Data', data)
+        //   console.log('Data', data)
 
 
           return data;
@@ -64,7 +74,7 @@ const DisplayPlatformStats = ({globalSales}) => {
     return ( 
         <div>
             <h1>Platform by Global Sales in Millions</h1>
-            <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataFormChart} />
+            <Chart chartType="ColumnChart" width="100%" height="400px" data={generateDataFormChart()} />
         </div>
      );
 }
