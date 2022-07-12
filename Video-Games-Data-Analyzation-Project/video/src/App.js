@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
-// import DisplayGlobalSales from './Components/DisplayGlobalSales/DisplayGlobalSales';
 import axios from 'axios';
 import DisplayPlatformStats from './Components/DisplayPlatformStats/DisplayPlatformStats';
+import SearchGames from './Components/SearchGames/SearchGames';
 
 function App() {
 
   
 
   const [globalSales, setGlobalSales] = useState([]);
+
 
   useEffect(() => {
     getGlobalSales();
@@ -25,13 +26,13 @@ function App() {
         console.log('ERROR in getGlobalSales EXCEPTION: ${ex}')
     }
 
-
+ 
   }
   return (
     <div>
       {/* <DisplayGlobalSales parentGlobalSales={globalSales} /> */}
       <DisplayPlatformStats globalSales={globalSales}/>
-
+      <SearchGames globalSales={globalSales}/>
     </div>
   );
 }
