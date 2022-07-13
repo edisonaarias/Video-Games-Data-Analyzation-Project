@@ -8,10 +8,11 @@ const SearchGames = (props) => {
         console.log(props.globalSales);
 
         // Filters the video games by details
-        let filteredGames = props.globalSales.filter(game => game.details);
+        let filteredGames = props.globalSales.filter(globalSales => globalSales.details);
+
 
         let gameSearch = filteredGames.map(game => {
-            return game.gameSearch
+            return game.propsSearchGames
         });
     }
     const [game, setGame] = useState(""); 
@@ -26,26 +27,36 @@ const SearchGames = (props) => {
     }
 
     return ( 
+        
+    <div className='form=group'>
+        <form onSubmit={handleSubmit}>
+            <label>Search For Game</label>
+            <input type="text" value={game} className="for-control"onChange={(event) => setGame(event.target.value)}/>
+            <button type='submit' className ="btn btn-primary">Search</button>
+        </form>
         <tbody>
+            
             {props.globalSales.map((globalSales, index) => {
                 return (
+                    
                     <tr key={index}>
 
                     <td>{globalSales.name}</td>                       
                     <td>{globalSales.rank}</td>                       
                     <td>{globalSales.platform}</td>                       
-                    <td>{globalSales.pear}</td>                       
+                    <td>{globalSales.year}</td>                       
                     <td>{globalSales.genre}</td>                       
                     <td>{globalSales.publisher}</td>                       
                     </tr>
+       
                 );
+        
             })}
-        <form onSubmit={handleSubmit}>
-            <label>Search For Game</label>
-            <input type="text" value={game} onChange={(event) => setGame(event.target.value)}/>
-            <button type='submit'>Search</button>
-        </form>
         </tbody>
+    
+
+       
+    </div>
 
         );  
 }

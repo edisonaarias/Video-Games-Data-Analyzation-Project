@@ -40,7 +40,7 @@ const DisplayPlatformStats = ({globalSales}) => {
             }
             
             
-            return [ platform, sum, "silver" ]
+            return [ platform, sum, "blue" ]
         });
 
         // console.log(platforms, distinctPlatforms)
